@@ -3,14 +3,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-//import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-//import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { Navbar, Footer, Sidebar, ThemeSettings, LineChart } from './components';
+import { Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor, ECommerce } from './pages';
 
+import { useStateContext } from './context/ContextProvider';
 
 import './App.css';
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
 
   return (
     <div>
@@ -31,47 +32,47 @@ const App = () => {
           </div>
           {activeMenu? (
             <div className='w-72 fixed sidebar dark:bg-secundary-dark-bg bg-white '> 
-              SideBar true
+              <Sidebar />
             </div>
           ):(
             <div className='w-0 dark:bg-secundary-dark-bg'>
-              SideBar false
+              <Sidebar />
             </div>
           )}
           <div className={
             `dark:bg-main-bg  bg-main-bg min-h-screen w-full ${activeMenu ?  'md:ml-72': 'flex-2'}`
           }>
             <div className='fixed md:static bg-main-bg dark: bg-main-dark-bg navbar w-full'>
-              Navbar
+              <Navbar />
             </div>
           </div>
 
           <div>
             <Routes>
               {/* Dashboard */}
-              <Route path='/' element = 'Comercio'/>
-              <Route path='/ecommerce' element = 'Comercio Electrónico'/>
+              <Route path='/' element = {< ECommerce/> } />
+              <Route path='/ecommerce' element = {<  ECommerce/> } />
 
               {/* Pages */}
-              <Route path='/orders' element = 'Órdenes de Compra'/>
-              <Route path='/employees' element = 'Empleados'/>
-              <Route path='/customers' element = 'Clientes'/>
+              <Route path='/orders' element = {< Orders/> } />
+              <Route path='/employees' element = {< Employees/> } />
+              <Route path='/customers' element = {< Customers/> } />
 
               {/* Apps */}
-              <Route path='/kanban' element = 'Gestión de Proyectos'/>
-              <Route path='/editor' element = 'Editor de texto'/>
-              <Route path='/calendar' element = 'Calendario'/>
-              <Route path='/color-picker' element = 'Selector de color'/>
+              <Route path='/kanban' element = {< Kanban/> } />
+              <Route path='/editor' element = {< Editor/> } />
+              <Route path='/calendar' element = {< Calendar/> } />
+              <Route path='/color-picker' element = {< ColorPicker/> } />
               
               {/* Charts */}
-              <Route path='/line' element = 'Diagrama de lineas'/>
-              <Route path='/area' element = 'Área'/>
-              <Route path='/bar' element = 'Diagrama de barras'/>
-              <Route path='/pie' element = 'Diagrama de torta'/>
-              <Route path='/financial' element = 'Graficos financieros'/>
-              <Route path='/color-mapping' element = 'Color Mapping'/>
-              <Route path='/pyramid' element = 'Gráfico de pirámide'/>
-              <Route path='/stacked' element = 'Stacked'/>
+              <Route path='/line' element = {< LineChart/> } />
+              <Route path='/area' element = {< Area/> } />
+              <Route path='/bar' element = {< Bar/> } />
+              <Route path='/pie' element = {< Pie/> } />
+              <Route path='/financial' element = {< Financial/> } />
+              <Route path='/color-mapping' element = {< ColorMapping/> } />
+              <Route path='/pyramid' element = {< Pyramid />} />
+              <Route path='/stacked' element = {< Stacked/> } />
 
             </Routes>
           </div>
