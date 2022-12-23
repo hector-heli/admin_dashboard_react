@@ -3165,13 +3165,13 @@ export const stackedChartData = [
     { x: 'July', y: 159.9 },
   ],
   [
-    { x: 'Jan', y: 111.1 },
-    { x: 'Feb', y: 127.3 },
-    { x: 'Mar', y: 143.4 },
-    { x: 'Apr', y: 159.9 },
-    { x: 'May', y: 159.9 },
-    { x: 'Jun', y: 159.9 },
-    { x: 'July', y: 159.9 },
+    { x: 'Jan', y: 211.1 },
+    { x: 'Feb', y: 227.3 },
+    { x: 'Mar', y: 243.4 },
+    { x: 'Apr', y: 259.9 },
+    { x: 'May', y: 259.9 },
+    { x: 'Jun', y: 259.9 },
+    { x: 'July', y: 259.9 },
   ],
 ];
 
@@ -3198,10 +3198,10 @@ export const stackedCustomSeries = [
 ];
 
 export const stackedPrimaryXAxis = {
-  majorGridLines: { width: 0 },
-  minorGridLines: { width: 0 },
-  majorTickLines: { width: 0 },
-  minorTickLines: { width: 0 },
+  majorGridLines: { width: 1 },
+  minorGridLines: { width: 1 },
+  majorTickLines: { width: 1 },
+  minorTickLines: { width: 1 },
   interval: 1,
   lineStyle: { width: 0 },
   labelIntersectAction: 'Rotate45',
