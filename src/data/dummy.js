@@ -2141,7 +2141,7 @@ export const ordersData = [
     OrderItems: 'Butter Scotch',
     Location: 'Delhi',
     Status: 'complete',
-    StatusBg: '#8BE78B',
+    StatusBg: '#FB9678',
     ProductImage:
       product5,
   },
