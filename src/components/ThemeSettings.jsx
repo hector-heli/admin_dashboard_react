@@ -10,7 +10,7 @@ const ThemeSettings = () => {
   const { setColor, setMode, currentMode, currentColor, setThemeSettings } = useStateContext();
    
   return <div
-    className="bg-half-transparent w-screen fixed nav-item top-0 right-0"
+    className="bg-half-transparent w-screen fixed nav-item top-0 right-0 dark:bg-secondary-dark-bg"
   >
     <div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400">
       <div className="flex justify-between items-center p-4 ml-4">
@@ -28,7 +28,7 @@ const ThemeSettings = () => {
       </div>
       <div className="flex-col border-t-1 border-color p-4 ml-4">
         <p className="font-semibold text-lg">
-          theme options
+          Theme options
         </p>
         <div className="mt-4">
           <input 
@@ -36,11 +36,13 @@ const ThemeSettings = () => {
             id='light'
             name="theme"
             value='Light'
-            className="cursos-pointer ml-4"
+            className="cursor-pointer ml-4"
             onChange={setMode}
             checked = {currentMode === 'Light'} 
           />
-          <label htmlFor="light" className="ml-2 text-md cursor-pointer">Light</label>
+          <label htmlFor="light" className="ml-2 text-md cursor-pointer">
+            Light
+          </label>
         </div>
         <div className="mt-4">
           <input 
@@ -48,7 +50,7 @@ const ThemeSettings = () => {
             id='dark'
             name="theme"
             value='Dark'
-            className="cursos-pointer ml-4"
+            className="cursor-pointer ml-4"
             onChange={setMode}
             checked = {currentMode === 'Dark'} 
           />
@@ -73,7 +75,10 @@ const ThemeSettings = () => {
                   type="button"
                   className="h-10 w-10 rounded-full cursor-pointer"
                   style={{ backgroundColor: item.color }}
-                  onClick= {() =>setColor(item.color)}
+                  onClick= {() => {
+                    console.log(item.color);
+                    setColor(item.color)
+                  }}
                 >
                   <BsCheck className={`ml-2 text-2xl text-white ${item.color === currentColor ? 'block' : 'hidden'}` }/>
                 </button>
