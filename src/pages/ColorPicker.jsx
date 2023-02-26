@@ -7,6 +7,8 @@ const change = (args) => {
   document.getElementById('preview').style.backgroundColor = args.currentValue.hex;
 }
 
+const CustomColorPicker = ({ id, mode}) => <ColorPickerComponent id={id} mode={mode} modeSwitcher={false} inline showButtons={false} change={change}/>
+
 const ColorPicker = () => {
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
@@ -18,33 +20,19 @@ const ColorPicker = () => {
             <p className='text-2xl font-semibold mt-2 mb-4'>
               InLine Palette
             </p>
-            <ColorPickerComponent
-              id='inLine Palette'
+            <CustomColorPicker
+              id='inline-palette'
               mode='Palette'
-              modeSwitcher={false}
-              inline
-              showButtons={false}
-              change={change}
             />  
-
           </div>
           <div>
             <p className='text-2xl font-semibold mt-2 mb-4'>
-              InLine Palette
+              InLine Picker
             </p>
-            <ColorPickerComponent
-              id='inLine Picker'
-              mode='Picker'
-              modeSwitcher={false}
-              inline
-              showButtons={false}
-              change={change}
-            />  
-
+            <CustomColorPicker id='inline-picker' mode='Picker' />  
           </div>
         </div>
       </div>
-
     </div>
   )
 }

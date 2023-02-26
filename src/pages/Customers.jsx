@@ -5,18 +5,23 @@ import { customersData, customersGrid} from '../data/dummy' ;
 import { Header } from '../components';
 
 const Customers = () => {
+  const selectionsettings = { persistSelection: true };
+  const toolbarOptions = [ 'Delete', 'Edit' ];
+  const editing = { allowDeleting: true, allowEditing: true };
+
   return (
     <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Customers" />
+      <Header category="Page" title="Clientes" />
       <GridComponent 
         id="gridComponent" 
+        enableHover={false}
         dataSource={customersData}
         allowPaging
+        pageSettings={{ pageCount: 5 }}
+        selectionSettings={selectionsettings}
+        toolbar={ toolbarOptions }
         allowSorting
-        allowResizing
-        toolbar={['Delete']}
-        editSettings={{ allowDeleting: true, allowEditing: true }}
-        edit='auto'
+        editSettings={editing}
       >
         <ColumnsDirective>
           {customersGrid.map((item, index) => (
@@ -27,7 +32,6 @@ const Customers = () => {
           services={[
             Page,
             Toolbar,
-            Resize,
             Selection,
             Edit,
             Sort,
